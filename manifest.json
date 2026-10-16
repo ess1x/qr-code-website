@@ -1,0 +1,15 @@
+{
+  "id": "./",
+  "name": "QR code.tn — QR Studio",
+  "short_name": "QR code.tn",
+  "description": "Create beautiful QR codes in seconds.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0712",
+  "theme_color": "#0b0712",
+  "orientation": "any",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

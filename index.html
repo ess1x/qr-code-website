@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0712">
+  <meta name="description" content="QR code.tn — Create beautiful QR codes in seconds.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>QR code.tn — QR Studio</title>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="QR code.tn home">
+      <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 4h13v13H4zM23 4h13v13H23zM4 23h13v13H4z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M23 23h6v6h-6zM32 23h4v4h-4zM32 31h4v5h-4zM23 32h6v4h-6z" fill="currentColor"/></svg></span>
+      <span>QR code<span class="brand-dot">.tn</span><small>QR STUDIO</small></span>
+    </a>
+    <div class="top-actions"><span class="status"><i></i> Ready to create</span><button id="installBtn" class="install-btn" hidden><span>↓</span> Install app</button></div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-line"></span> YOUR LINK, REIMAGINED</div>
+      <h1>Make it scan.<br><span>Make it yours.</span></h1>
+      <p class="hero-copy">Create custom QR codes in seconds. Clean, fast, and ready to share anywhere.</p>
+      <div class="hero-tags"><span>✦ Free to use</span><span>⌁ Instant preview</span><span>↗ Made for sharing</span></div>
+    </section>
+
+    <section class="workspace" aria-label="QR code generator">
+      <div class="editor panel">
+        <div class="section-heading"><div><span class="step">01</span><h2>Build your QR</h2></div><span class="tiny-label">CONTENT</span></div>
+        <label class="field-label" for="qrType">What do you want to share?</label>
+        <div class="type-grid" id="typeGrid">
+          <button class="type-card active" data-type="url"><span>↗</span><b>Website</b></button>
+          <button class="type-card" data-type="text"><span>☷</span><b>Text</b></button>
+          <button class="type-card" data-type="wifi"><span>⌁</span><b>Wi-Fi</b></button>
+          <button class="type-card" data-type="email"><span>✉</span><b>Email</b></button>
+          <button class="type-card" data-type="phone"><span>⌕</span><b>Phone</b></button>
+        </div>
+        <div id="fields" class="fields">
+          <label class="field-label" for="mainInput">Website URL</label>
+          <div class="input-wrap"><span class="input-icon">↗</span><input id="mainInput" type="url" placeholder="https://example.com" value="https://qr-code.tn" autocomplete="url"></div>
+          <p class="helper">Include https:// for the best results.</p>
+        </div>
+        <div class="customize">
+          <div class="section-heading compact"><div><span class="step">02</span><h2>Make it yours</h2></div><span class="tiny-label">STYLE</span></div>
+          <div class="color-row">
+            <div><label class="field-label" for="qrColor">QR color</label><div class="color-input"><input type="color" id="qrColor" value="#170c24"><span id="qrColorText">#170C24</span></div></div>
+            <div><label class="field-label" for="bgColor">Background</label><div class="color-input"><input type="color" id="bgColor" value="#ffffff"><span id="bgColorText">#FFFFFF</span></div></div>
+          </div>
+          <label class="field-label size-label" for="qrSize">Export size <span id="sizeValue">320 px</span></label>
+          <input id="qrSize" class="range" type="range" min="200" max="800" step="100" value="320">
+        </div>
+        <button id="generateBtn" class="primary-btn"><span>Generate QR code</span><span class="btn-arrow">↗</span></button>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+      </div>
+
+      <aside class="preview panel">
+        <div class="section-heading"><div><span class="step">03</span><h2>Your preview</h2></div><span class="live-pill"><i></i> LIVE</span></div>
+        <div class="preview-stage">
+          <div class="qr-frame"><div id="qrcode" aria-label="Generated QR code"></div><div id="qrPlaceholder" class="qr-placeholder"><div class="placeholder-symbol">▦</div><b>Your QR starts here</b><span>Enter your content to create a code</span></div></div>
+          <div class="scan-caption"><span class="scan-icon">⌗</span><span><b>Scan to explore</b><small>Works with any QR scanner</small></span></div>
+        </div>
+        <div class="preview-footer"><div><span class="preview-label">FORMAT</span><b>PNG · High quality</b></div><button id="downloadBtn" class="download-btn" disabled><span>↓</span> Download PNG</button></div>
+        <div class="privacy-note"><span>◈</span> Your content stays on your device. No account needed.</div>
+      </aside>
+    </section>
+    <footer><span>© <span id="year"></span> QR code.tn by ESENTI</span><span>CRAFTED FOR THE CURIOUS <b>✦</b></span></footer>
+  </main>
+  <a class="telegram-dm" href="https://t.me/SXR60" target="_blank" rel="noopener noreferrer" aria-label="Send me a DM on Telegram">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.7 3.3a1.4 1.4 0 0 0-1.5-.2L2.7 9.8c-1.2.5-1.2 1.2-.2 1.5l4.5 1.4 1.7 5.2c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.2-2.1 4.6 3.4c.9.5 1.5.2 1.7-.8l3-14c.2-.7-.1-1.2-.5-1.4ZM8.1 12.4l9.9-6.2c.5-.3.9-.1.5.2l-8.2 7.5-.3 3.5-1.9-5Z"/></svg>
+    <span>Telegram DM</span>
+  </a>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="app.js"></script>
+</body>
+</html>
